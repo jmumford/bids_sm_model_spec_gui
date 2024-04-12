@@ -337,7 +337,7 @@ class AddTransformationWidgets():
     # This is a horrible idea, I'll need to fix it later    
     def get_xform_schema(self):
         import jsonref
-        with open('../assets/pybids_xform_schema_JM.json') as f:
+        with open('assets/pybids_xform_schema_JM.json') as f:
             xform_schema = jsonref.load(f)
         return xform_schema    
 

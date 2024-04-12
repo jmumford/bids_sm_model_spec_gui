@@ -10,7 +10,7 @@ import collections
 label_width = 25
 
 
-IMG_PATH = Path(__file__).parent / '../assets'
+IMG_PATH = Path(__file__).parent / 'assets'
 
 # Used to make each frame collapsable
 class CollapsingFrame(tb.Frame):
