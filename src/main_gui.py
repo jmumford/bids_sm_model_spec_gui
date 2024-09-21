@@ -11,7 +11,7 @@ from functools import partial
 from DoubleScrolledFrame import DoubleScrolledFrame
 from input_setup import(CreateInputWidgets)
 from nodes_transformations_setup_try_tabs import AddNode
-from utils import CollapsingFrame, make_button
+from utils import CollapsingFrame, make_button, json_to_file
 from make_json import make_json
 
 from edges_setup import AddEdgeWidgets
@@ -53,4 +53,10 @@ make_button(main_window, 'Show Model Spec!', partial(make_json,
                                                       node_widgets,
                                                       edge_widgets))
 
-main_window.mainloop() 
+# Button to save json to file
+make_button(main_window, 'Save as file', partial(json_to_file,
+                                                      top_level_data,
+                                                      node_widgets,
+                                                      edge_widgets))
+
+main_window.mainloop()

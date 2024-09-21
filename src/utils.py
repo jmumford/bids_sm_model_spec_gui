@@ -1,3 +1,4 @@
+from tkinter import filedialog
 import tkinter as tk
 import ttkbootstrap as tb
 from ttkbootstrap.constants import *
@@ -6,6 +7,8 @@ from ttkbootstrap.style import Bootstyle
 from functools import partial
 from pathlib import Path
 import collections
+
+from make_json import make_json
 
 label_width = 25
 
@@ -146,11 +149,12 @@ def create_label_entry(parent_frame, label, frame_pack='top', entry_width=25, la
 
 
 
-def create_label_combobox(parent_frame, label, combobox_values, frame_pack, label_left=True):
+def create_label_combobox(parent_frame, label, combobox_values, frame_pack, label_left=True, default=None):
     '''
     creates a label widget with a combobox widget
     label_left=True adds label to the left of combobox
     label_left=False adds label above the combobox
+    :param int default: Index of value in combobox_values to default to.
     '''
     if frame_pack == 'top':
         frame_pack_kwargs = {'fill': X, 'expand': NO, 'pady':5}
@@ -170,6 +174,8 @@ def create_label_combobox(parent_frame, label, combobox_values, frame_pack, labe
         column_combobox = 0
         label_add_grid(widget_pair_frame, label, row_label, column_label)
         combobox_widget = combobox_add_grid(widget_pair_frame, combobox_values, row_combobox, column_combobox)
+    if default is not None:
+        combobox_widget.current(default)
     return combobox_widget
 
 
@@ -325,3 +331,13 @@ def check_all_checkbuttons(check_button_set):
             if check_button_set['Select all'].instate(['selected']) == False:
                 if check_button_set[check_name].instate(['selected']) == True:
                     check_button_set[check_name].invoke()
+
+def json_to_file(top_level_data, node_widgets, edge_widgets):
+    to_save = make_json(top_level_data, node_widgets, edge_widgets)
+    name = top_level_data.widget_output['Name (req, str)'].get()
+    save_file(to_save, f"{name}.json")
+
+def save_file(to_save, filename):
+    file = filedialog.asksaveasfile(initialfile=filename)
+    file.write(to_save)
+    file.close()

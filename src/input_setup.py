@@ -21,7 +21,7 @@ class CreateInputWidgets():
         self.widget_output['Name (req, str)'] = \
             create_label_entry(self.master, 'Name (req, str)', frame_pack='top', label_left=True) 
         self.widget_output['BIDSModelVersion (req, str)']  = \
-            create_label_combobox(self.master, 'BIDS Model Version (req)', ["1.0.0"], frame_pack='top', label_left=True)     
+            create_label_combobox(self.master, 'BIDS Model Version (req)', ["1.0.0"], frame_pack='top', label_left=True, default=0)
         self.widget_output['Description (opt, str)'] = \
             create_label_entry(self.master, 'Description (opt, str)', frame_pack='top', label_left=True)
         
