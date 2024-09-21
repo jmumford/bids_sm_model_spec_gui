@@ -1,0 +1,10 @@
+[project]
+name = "bids-sm-model-spec-gui"
+version = "0.1.0"
+description = "GUI for generating BIDS Stats Model spec json files."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.1.1",
+    "ttkbootstrap>=1.10.1",
+]
