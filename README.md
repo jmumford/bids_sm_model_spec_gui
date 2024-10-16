@@ -2,7 +2,7 @@ GUI for generating BIDS Stats Model spec json files.
 
 Work in progress.  Current version only prints the json to screen for testing purposes.
 
-run using `python main_gui.py`
+run using `python src/main_gui.py`
 
 
 Mac users:  If you're running Sonoma, you'll need python 3.12 or newer, most importantly it must be running tcl.tk 8.6.13 or higher. \

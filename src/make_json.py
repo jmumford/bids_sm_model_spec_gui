@@ -210,5 +210,6 @@ def make_json(top_level_data, node_widgets, edge_widgets):
     model_spec['Edges'] = edges
     json_formatted_str = json.dumps(model_spec, indent=4)
     print(json_formatted_str)
+    return json_formatted_str
 
 
