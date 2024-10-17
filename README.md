@@ -1,26 +1,29 @@
 GUI for generating BIDS Stats Model spec json files.
 
-Work in progress.  Current version only prints the json to screen for testing purposes.
+## Installation
+It is best to use this tool within a conda environment.  You can use the following commands from within this directory to set up the environment and install the package.
+```
+conda create -n bids-sm-maker python=3.12.2
+conda activate bids-sm-maker
+pip install -e .
+```
+Once the package is installed, as long as you are working in the `bids-sm-maker` environment, you can launch the GUI from any directory using the `make_spec` command.
 
-run using `python src/main_gui.py`
 
+## Mac users, please check tcl/tk version
+It is important that Sonoma users are using a version of Python that has been paired with a version of tcl/tk > 8.6.13.  If an older version of tcl/tk was installed, it is difficult for the GUI to register mouse clicks.
 
-Mac users:  If you're running Sonoma, you'll need python 3.12 or newer, most importantly it must be running tcl.tk 8.6.13 or higher. \
-As far as I know tcl.tk is updated only with python.  If `pyenv install python 3.12.0` is used it should be fine.  If you use conda it will not install 
-the updated tcl.tk version.
-
-If you need it, here's how to check your tcl.tk version.  
-```#!/usr/bin/python
-# coding: utf-8
-
-import sys
-
-try:
-    import Tkinter as tk      # Python 2
-except ImportError:
-    import tkinter as tk      # Python 3
-
+To check which version of tcl/tk was installed, in python run:
+```
+import tkinter as tk
+print("Check that both of these output version numbers > 8.6.13")
 print("Tcl Version: {}".format(tk.Tcl().eval('info patchlevel')))
 print("Tk Version: {}".format(tk.Tk().eval('info patchlevel')))
-sys.exit()
+
 ```
+
+## Work in progress.  
+Current version only prints the json to screen for testing purposes.
+
+
+
